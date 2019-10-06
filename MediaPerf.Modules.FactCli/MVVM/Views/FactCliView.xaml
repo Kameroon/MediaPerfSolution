@@ -5,15 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MediaPerf.Modules.FactCli.MVVM.Views"
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True"
+             prism:ViewModelLocator.AutoWireViewModel="True"       
+             xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:Custom1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"             
+             
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="600">
+    <!--xmlns:filter="clr-namespace:WPFDataGridLibrary;assembly=WPFDataGridLibrary"-->
+    
+    <!--
+    https://www.c-sharpcorner.com/article/wpf-custom-control-datagrid-with-full-text-search-box/
+    https://github.com/nosalan/wpf-mvvm-datagrid-with-filtering-->
+    
     <Grid.RowDefinitions>
         <RowDefinition Height="15"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="5"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="5"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="5"/>
+        <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="5"/>
@@ -50,10 +62,65 @@
                 FontSize="15" Margin="5" Width="150" 
                 FontWeight="SemiBold"
                 Command="{Binding ValidateCommand}" Cursor="Hand"/>
-        <!-- Brower button -->
-        <Button Grid.Row="1" Grid.Column="1" Content="Parcourir" 
-                FontSize="15" Margin="5" Width="150" 
-                FontWeight="SemiBold" 
-                Command="{Binding BrowseCommand}" Cursor="Hand"/>
+        
+        <!-- *** The ItemsSource of the data grid is bound to the CollectionViewSource object that was instantiated above -->
+        <!--<Custom1:DataGrid Name="personGrid" ItemsSource="{Binding PersonList}"
+                          SelectedItem="{Binding SelectedPerson}"
+                          Margin="8" AutoGenerateColumns="True"  
+                          IsReadOnly="True"  MaxHeight="150">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Copy" Command="{Binding CopyItemCommand}" />
+                    <MenuItem Header="Delete" Command="{Binding DeleteItemCommand}" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </Custom1:DataGrid>-->
+
+        <StackPanel Margin="5" Orientation="Vertical">
+            <CheckBox IsChecked="True" Name="ShowHideFilterCheckBox">
+                Show/Hide Filter
+            </CheckBox>
+        </StackPanel>
+        <!--
+         MaxHeight="150" Name="personGrid" 
+                       filter:DataGridExtensions.UseBackgroundWorkerForFiltering="True"                        
+                       filter:DataGridExtensions.IsFilterVisible="{Binding 
+                       Path=IsChecked, ElementName=ShowHideFilterCheckBox, Mode=TwoWay}"                                               
+                       ColumnHeaderStyle="{StaticResource {ComponentResourceKey 
+                                           TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, 
+		                                   ResourceId=DataGridHeaderFilterControlStyle}}"
+        -->
+        <Custom1:DataGrid MaxHeight="150" Name="personGrid"            
+                        AutoGenerateColumns="True"
+                        ItemsSource="{Binding Path=PersonList}">
+                          
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Copy" Command="{Binding CopyItemCommand}" />
+                    <MenuItem Header="Delete" Command="{Binding DeleteItemCommand}" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </Custom1:DataGrid>
+        
+        <!--
+        <DataGrid ItemsSource="{Binding Candidates, IsAsync=True}" 
+                      AutoGenerateColumns="False" 
+                      EnableColumnVirtualization="True" 
+                      EnableRowVirtualization="True"
+                      VirtualizingStackPanel.VirtualizationMode="Standard"
+                      VirtualizingStackPanel.IsVirtualizing="True"
+                      CanUserAddRows="false">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Firstname}" Header="Imię" />
+                    <DataGridTextColumn Binding="{Binding Lastname}" Header="Nazwisko" />
+                    <DataGridTextColumn Binding="{Binding commendation.Name}" Header="Polecenie" />
+  </DataGrid.Columns>
+        -->
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Label>Displayed rows :</Label>
+            <Label Content="{Binding ElementName=personGrid, Path=Items.Count}"></Label>
+        </StackPanel>
     </StackPanel>
 </Grid>

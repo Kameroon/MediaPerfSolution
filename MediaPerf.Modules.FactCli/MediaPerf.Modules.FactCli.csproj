@@ -129,6 +129,14 @@
       <Project>{f24237ed-f1af-488f-97fe-6e7514a0753b}</Project>
       <Name>MediaPerf.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MediaPerf.Models.DataModel\MediaPerf.Models.DataModel.csproj">
+      <Project>{cc032b8f-b4fe-4e10-8f7d-79b874d64d08}</Project>
+      <Name>MediaPerf.Models.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFDataGridLibrary\WPFDataGridLibrary.csproj">
+      <Project>{09a23b1e-81b6-4b33-8fa7-a391b9c95903}</Project>
+      <Name>WPFDataGridLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MVVM\Views\FactCliView.xaml">

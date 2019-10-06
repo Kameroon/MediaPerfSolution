@@ -11,7 +11,7 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding ApplicationTitle}"  
-        Height="560" Width="900" MinHeight="600" MinWidth="700"
+        Height="560" Width="900" MinHeight="700" MinWidth="700"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         WindowStyle="SingleBorderWindow">
 
@@ -59,11 +59,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <!-- Ce bouton doit rester dehors pour que le BusiInditor fonctionne -->
             <Button Content="Valider" 
                     FontSize="15" Margin="5" Width="150" 
                     FontWeight="SemiBold" Command="{Binding ValidateCommand}" Cursor="Hand"/>
@@ -72,11 +75,12 @@
         <xctk:BusyIndicator Grid.Row="1" Name="busyIndicator" 
                             IsBusy="{Binding IsBusy}"
                             BusyContent="{Binding Message}">
-            <Grid>
+            
+            <StackPanel Orientation="Vertical">
 
                 <ItemsControl prism:RegionManager.RegionName="MainRegion"
                       Grid.Row="2" Grid.Column="1" />
-            </Grid>
+            </StackPanel>
         </xctk:BusyIndicator>
     </Grid>
 </Window>
