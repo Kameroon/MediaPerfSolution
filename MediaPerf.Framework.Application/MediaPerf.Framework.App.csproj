@@ -230,6 +230,10 @@
       <Project>{f24237ed-f1af-488f-97fe-6e7514a0753b}</Project>
       <Name>MediaPerf.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MediaPerf.Module.Message\MediaPerf.Module.Message.csproj">
+      <Project>{7B83BC4A-F43E-4977-BB3D-22CE41460746}</Project>
+      <Name>MediaPerf.Module.Message</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MediaPerf.Modules.FactCli\MediaPerf.Modules.FactCli.csproj">
       <Project>{c6459911-fdf8-4a13-9ff7-e538f0ca6ccc}</Project>
       <Name>MediaPerf.Modules.FactCli</Name>

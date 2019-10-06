@@ -80,6 +80,9 @@
 
                 <ItemsControl prism:RegionManager.RegionName="MainRegion"
                       Grid.Row="2" Grid.Column="1" />
+
+                <ItemsControl prism:RegionManager.RegionName="MessageRegion"
+                      Grid.Row="3" Grid.Column="1" />
             </StackPanel>
         </xctk:BusyIndicator>
     </Grid>

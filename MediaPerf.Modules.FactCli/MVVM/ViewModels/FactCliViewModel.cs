@@ -1,5 +1,7 @@
 ﻿using MediaPerf.Infrastructure.Communs;
+using MediaPerf.Infrastructure.Events;
 using Prism.Commands;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +15,7 @@ namespace MediaPerf.Modules.FactCli.MVVM.ViewModels
     public class FactCliViewModel : ViewModelBase
     {
         #region Fields
+        private readonly IEventAggregator _eventAggregator;
 
         #endregion
 
@@ -24,15 +27,6 @@ namespace MediaPerf.Modules.FactCli.MVVM.ViewModels
         #endregion
 
         #region Properties
-
-        #endregion
-
-        #region Constructor
-        public FactCliViewModel()
-        {
-            Initialize();
-        }
-        #endregion
 
         private ObservableCollection<Person> _people;
 
@@ -56,6 +50,28 @@ namespace MediaPerf.Modules.FactCli.MVVM.ViewModels
             }
         }
 
+        private string _message = "Message envoyée ......";
+
+        public string Message
+        {
+            get { return _message; }
+            set
+            {
+                SetProperty(ref _message, value);
+            }
+        }
+        #endregion
+
+        #region Constructor
+        public FactCliViewModel(IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
+
+            Initialize();
+        }
+        #endregion
+
+
         #region Methods
         private void Initialize()
         {
@@ -69,6 +85,8 @@ namespace MediaPerf.Modules.FactCli.MVVM.ViewModels
             //People people = new People();
             PersonList = People.GetPoeple();
         }
+
+        
 
         private void CopyItem()
         {
@@ -93,6 +111,7 @@ namespace MediaPerf.Modules.FactCli.MVVM.ViewModels
         private void OnWindow()
         {
             Console.WriteLine("Validate 1000000000000000000000000");
+            _eventAggregator.GetEvent<SendMessageEvent>().Publish(Message);
         }
 
         private bool CanWindow()

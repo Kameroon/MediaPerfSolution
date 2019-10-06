@@ -1,6 +1,7 @@
 ﻿using MediaPerf.Framework.App.MVVM.Views;
 using MediaPerf.Infrastructure.Services.Contracts;
 using MediaPerf.Infrastructure.Services.Implementations;
+using MediaPerf.Module.Message;
 using MediaPerf.Modules.FactCli;
 using NLog;
 using Prism.Modularity;
@@ -50,6 +51,13 @@ namespace MediaPerf.Framework.App
                 {
                     ModuleName = factureClientModuleType.Name,
                     ModuleType = factureClientModuleType.AssemblyQualifiedName
+                });
+
+                Type messageModuleType = typeof(MessageModule);
+                ModuleCatalog.AddModule(new ModuleInfo
+                {
+                    ModuleName = messageModuleType.Name,
+                    ModuleType = messageModuleType.AssemblyQualifiedName
                 });
 
                 foreach (var module in ModuleCatalog.Modules)

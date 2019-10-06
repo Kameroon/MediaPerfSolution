@@ -15,7 +15,9 @@
     
     <!--
     https://www.c-sharpcorner.com/article/wpf-custom-control-datagrid-with-full-text-search-box/
-    https://github.com/nosalan/wpf-mvvm-datagrid-with-filtering-->
+    https://github.com/nosalan/wpf-mvvm-datagrid-with-filtering
+    https://www.codeproject.com/KB/WPF/datagridfilterlibrary/datagridfilterlibrary_src_vs2008.zip
+    -->
     
     <Grid.RowDefinitions>
         <RowDefinition Height="15"/>
@@ -61,7 +63,7 @@
         <Button Content="Valider" 
                 FontSize="15" Margin="5" Width="150" 
                 FontWeight="SemiBold"
-                Command="{Binding ValidateCommand}" Cursor="Hand"/>
+                Command="{Binding BrowseCommand}" Cursor="Hand"/>
         
         <!-- *** The ItemsSource of the data grid is bound to the CollectionViewSource object that was instantiated above -->
         <!--<Custom1:DataGrid Name="personGrid" ItemsSource="{Binding PersonList}"
