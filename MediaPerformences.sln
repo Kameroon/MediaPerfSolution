@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPerf.Framework.App", "MediaPerf.Framework.Application\MediaPerf.Framework.App.csproj", "{0DDCBEAE-13B5-464E-9802-F60EFD185678}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{A6667ACD-3F29-4992-AE34-E382594A8C13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{9F90AB0D-79D2-444B-A3C0-02F2B51ADE09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{64CC65A7-B5EF-42E3-86EA-B0D55BA62AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPerf.Infrastructure", "MediaPerf.Infrastructure\MediaPerf.Infrastructure.csproj", "{F24237ED-F1AF-488F-97FE-6E7514A0753B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPerf.Modules.FactCli", "MediaPerf.Modules.FactCli\MediaPerf.Modules.FactCli.csproj", "{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{B4A48964-7EF7-40BE-9224-30B1B2C4E237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPerf.Models.DataModel", "MediaPerf.Models.DataModel\MediaPerf.Models.DataModel.csproj", "{CC032B8F-B4FE-4E10-8F7D-79B874D64D08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DDCBEAE-13B5-464E-9802-F60EFD185678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDCBEAE-13B5-464E-9802-F60EFD185678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDCBEAE-13B5-464E-9802-F60EFD185678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDCBEAE-13B5-464E-9802-F60EFD185678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24237ED-F1AF-488F-97FE-6E7514A0753B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24237ED-F1AF-488F-97FE-6E7514A0753B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24237ED-F1AF-488F-97FE-6E7514A0753B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24237ED-F1AF-488F-97FE-6E7514A0753B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC032B8F-B4FE-4E10-8F7D-79B874D64D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC032B8F-B4FE-4E10-8F7D-79B874D64D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC032B8F-B4FE-4E10-8F7D-79B874D64D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC032B8F-B4FE-4E10-8F7D-79B874D64D08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DDCBEAE-13B5-464E-9802-F60EFD185678} = {A6667ACD-3F29-4992-AE34-E382594A8C13}
+		{F24237ED-F1AF-488F-97FE-6E7514A0753B} = {A6667ACD-3F29-4992-AE34-E382594A8C13}
+		{C6459911-FDF8-4A13-9FF7-E538F0CA6CCC} = {64CC65A7-B5EF-42E3-86EA-B0D55BA62AEB}
+		{CC032B8F-B4FE-4E10-8F7D-79B874D64D08} = {B4A48964-7EF7-40BE-9224-30B1B2C4E237}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D14E6C63-F8F2-4FCF-B313-76B68DEF1C9E}
+	EndGlobalSection
+EndGlobal

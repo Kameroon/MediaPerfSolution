@@ -1,0 +1,59 @@
+﻿<Grid x:Class="MediaPerf.Modules.FactCli.MVVM.Views.FactCliView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MediaPerf.Modules.FactCli.MVVM.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="15"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="5"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="5"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="5"/>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Grid.Row="1" Grid.Column="1" Text="Module de Facture client"
+               FontSize="25" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+    <StackPanel Grid.Row="3" Grid.Column="1" MaxWidth="400">
+        <TextBox x:Name="firstNameTxtBox" Margin="5"/>
+        <TextBox x:Name="lastNameTxtBox" Margin="5"/>
+        <Button Content="Save" Margin="5" Height="35"
+                Command="{Binding ValidateCommand}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text.Length, 
+                                    ElementName=firstNameTxtBox, UpdateSourceTrigger=PropertyChanged}"
+                                             Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text.Length, 
+                                    ElementName=lastNameTxtBox, UpdateSourceTrigger=PropertyChanged}" 
+                                             Value="0">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Content="Valider" 
+                FontSize="15" Margin="5" Width="150" 
+                FontWeight="SemiBold"
+                Command="{Binding ValidateCommand}" Cursor="Hand"/>
+        <!-- Brower button -->
+        <Button Grid.Row="1" Grid.Column="1" Content="Parcourir" 
+                FontSize="15" Margin="5" Width="150" 
+                FontWeight="SemiBold" 
+                Command="{Binding BrowseCommand}" Cursor="Hand"/>
+    </StackPanel>
+</Grid>
